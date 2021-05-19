@@ -4,6 +4,9 @@ android {
     QT += androidextras
 }
 
+ANDROID_MIN_SDK_VERSION = 21
+ANDROID_TARGET_SDK_VERSION = 30
+
 CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -27,7 +30,19 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-ANDROID_ABIS = x86_64
+ANDROID_ABIS = armeabi-v7a
 
 HEADERS += \
     AppFrameworkLabs.h
+
+DISTFILES += \
+    android/AndroidManifest.xml \
+    android/build.gradle \
+    android/gradle.properties \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew \
+    android/gradlew.bat \
+    android/res/values/libs.xml
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android

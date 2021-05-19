@@ -43,7 +43,10 @@ Page {
                 font.pointSize: styles.textPointSize
 
                 onClicked: {
-                    Email.send();
+                    let to = "siri@apple.com";
+                    let subject = "hello";
+                    let text = "tell me a joke!";
+                    Email.send(to, subject, text);
                 }
             }
 
@@ -62,8 +65,21 @@ Page {
             Text {
                 text: Email.qtVersion
 
-                font.pointSize: sttles.textPointSize
+                font.pointSize: styles.textPointSize
             }
+
+            Text {
+                text: Email.androidSdkVersion
+
+                font.pointSize: styles.textPointSize
+            }
+
+            Text {
+                text: Email.targetSdkVersion
+
+                font.pointSize: styles.textPointSize
+            }
+
         }
     }
 
